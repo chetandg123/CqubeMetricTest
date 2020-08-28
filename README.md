@@ -12,7 +12,7 @@ password= # Enter the password for postgres which is provided in the config.yml 
 
 Fill the Details in json_data.ini
 
-Download the output_data folder from the s3 output bucket and store in the home directory(ie /home/ubuntu/output_data).
+Download the output_data folder from the s3 output bucket and store it in the home directory(ie /home/ubuntu/output_data).
 
 [jsondata]
 semester_exception_district_wise=/home/ubuntu/output_data/exception_list/semester_completion/district_sem_completion_2.json
