@@ -1,23 +1,56 @@
-CqubeMetric is a test script which is used to calculate the metrics, by using the queries and json files(s3 output bucket json files). This provides the report based on the student attendance report,crc and semester. To run this test script,json_data should be downloaded from s3 output bucket and stored in the local machine.
-
-Fill the Details in crc_ini [url] domain= # ex : https://cqube.tibilprojects.com/api/ or http://:4200/api/ email= # Enter email address for login to cqube application password= # Enter password for login to cqube application
+CqubeMetricTest is used to calculate the metrics of semester exception report, diksha stacked chart report, diksha column chart report and diksha table report.
+Metrics test done by using the sql queries and json files(s3 output bucket json files).
 
 Fill the Details in Database.ini
 
-[pgsql] host= # hostname for connecting to postgres (ex : ) port=5432 # Port number for postgres database= # Enter the Database name for postgres which is provided in the config.yml while installing user= # Enter the username name for postgres which is provided in the config.yml while installing password= # Enter the password for postgres which is provided in the config.yml while installing
+[pgsql] 
+host= # hostname for connecting to postgres (ex :locahost or public ip) 
+port=5432 # Port number for postgres (default port number is 5432)
+database= # Enter the Database name for postgres which is provided in the config.yml while installing 
+user= # Enter the username name for postgres which is provided in the config.yml while installing 
+password= # Enter the password for postgres which is provided in the config.yml while installing
 
 Fill the Details in json_data.ini
 
-[jsondata] district_attendance_2019_8= #Download the file from s3 output bucket and provide the Absolute path district_attendance_2019_9= #Download the file from s3 output bucket and provide the Absolute path district_attendance_2019_10= #Download the file from s3 output bucket and provide the Absolute path
+Download the output_data folder from the s3 output bucket and store in the home directory(ie /home/ubuntu/output_data).
 
-block_attendance_2019_8= #Download the file from s3 output bucket and provide the Absolute path block_attendance_2019_9= #Download the file from s3 output bucket and provide the Absolute path block_attendance_2019_10= #Download the file from s3 output bucket and provide the Absolute path
+[jsondata]
+semester_exception_district_wise=/home/ubuntu/output_data/exception_list/semester_completion/district_sem_completion_2.json
+semester_exception_block_wise=/home/ubuntu/output_data/exception_list/semester_completion/block_sem_completion_2.json
+semester_exception_cluster_wise=/home/ubuntu/output_data/exception_list/semester_completion/cluster_sem_completion_2.json
+semester_exception_school_wise=/home/ubuntu/output_data/exception_list/semester_completion/school_sem_completion_2.json
 
-cluster_attendance_2019_8= #Download the file from s3 output bucket and provide the Absolute path cluster_attendance_2019_9= #Download the file from s3 output bucket and provide the Absolute path cluster_attendance_2019_10= #Download the file from s3 output bucket and provide the Absolute path
+bar_chart_reports_course=/home/ubuntu/output_data/diksha_output/bar_chart_reports/course/*.json
+bar_chart_reports_all=/home/ubuntu/output_data/diksha_output/bar_chart_reports/all/*.json
+bar_chart_reports_textbook=/home/ubuntu/output_data/diksha_output/bar_chart_reports/textbook/*.json
+bar_chart_reports_course_last_7_days=/home/ubuntu/output_data/diksha_output/bar_chart_reports/course/last_7_days/*.json
+bar_chart_reports_all_last_7_days=/home/ubuntu/output_data/diksha_output/bar_chart_reports/all/last_7_days/*.json
+bar_chart_reports_textbook_last_7_days=/home/ubuntu/output_data/diksha_output/bar_chart_reports/textbook/last_7_days/*.json
+bar_chart_reports_course_last_30_days=/home/ubuntu/output_data/diksha_output/bar_chart_reports/course/last_30_days/*.json
+bar_chart_reports_all_last_30_days=/home/ubuntu/output_data/diksha_output/bar_chart_reports/all/last_30_days/*.json
+bar_chart_reports_textbook_last_30_days=/home/ubuntu/output_data/diksha_output/bar_chart_reports/textbook/last_30_days/*.json
+bar_chart_reports_course_last_day=/home/ubuntu/output_data/diksha_output/bar_chart_reports/course/last_day/*.json
+bar_chart_reports_all_last_day=/home/ubuntu/output_data/diksha_output/bar_chart_reports/all/last_day/*.json
+bar_chart_reports_textbook_last_day=/home/ubuntu/output_data/diksha_output/bar_chart_reports/textbook/last_day/*.json
 
-school_attendance_2019_8= #Download the file from s3 output bucket and provide the Absolute path school_attendance_2019_9= #Download the file from s3 output bucket and provide the Absolute path school_attendance_2019_10= #Download the file from s3 output bucket and provide the Absolute path
+table_reports_course_last_7_days=/home/ubuntu/output_data/diksha_output/table_reports/course/last_7_days/*.json
+table_reports_all_last_7_days=/home/ubuntu/output_data/diksha_output/table_reports/all/last_7_days/*.json
+table_reports_textbook_last_7_days=/home/ubuntu/output_data/diksha_output/table_reports/textbook/last_7_days/*.json
+table_reports_course_last_30_days=/home/ubuntu/output_data/diksha_output/table_reports/course/last_30_days/*.json
+table_reports_all_last_30_days=/home/ubuntu/output_data/diksha_output/table_reports/all/last_30_days/*.json
+table_reports_textbook_last_30_days=/home/ubuntu/output_data/diksha_output/table_reports/textbook/last_30_days/*.json
+table_reports_course_last_day=/home/ubuntu/output_data/diksha_output/table_reports/course/last_day/*.json
+table_reports_all_last_day=/home/ubuntu/output_data/diksha_output/table_reports/all/last_day/*.json
+table_reports_textbook_last_day=/home/ubuntu/output_data/diksha_output/table_reports/textbook/last_day/*.json
 
-district_semester= #Download the file from s3 output bucket and provide the Absolute path
-block_semester= #Download the file from s3 output bucket and provide the Absolute path cluster_semester= #Download the file from s3 output bucket and provide the Absolute path school_semester= #Download the file from s3 output bucket and provide the Absolute path
+stack_bar_reports_last_7_days=/home/ubuntu/output_data/diksha_output/stack_bar_reports/last_7_days/All.json
+stack_bar_reports_last_30_day=/home/ubuntu/output_data/diksha_output/stack_bar_reports/last_30_days/All.json
+stack_bar_reports_last_day=/home/ubuntu/output_data/diksha_output/stack_bar_reports/last_day/All.json
+stack_bar_reports_last_7_day=/home/ubuntu/output_data/diksha_output/stack_bar_reports/last_7_days/*.json
+stack_bar_reports_last_30_days=/home/ubuntu/output_data/diksha_output/stack_bar_reports/last_30_days/*.json
+stack_bar_reports_last_days=/home/ubuntu/output_data/diksha_output/stack_bar_reports/last_day/*.json
+
+exception_list=/home/ubuntu/output_data/exception_list/school_invalid_data.json
 
 Run the test script by using the run_tests.py
 
