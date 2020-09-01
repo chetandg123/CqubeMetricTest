@@ -25,4 +25,4 @@ Steps to execute the test script
         
 Note : 
 The system username must be ubuntu and the output_data folder must be placed in the home directory only.
-Recommended Environment for running the test scripts are ubuntu 18.0.4.LTS or above and open the Project in the Pycharm ide.
+Recommended Environment for running the test scripts are ubuntu 18.0.4.LTS or above and open the Project in the Pycharm IDE.
