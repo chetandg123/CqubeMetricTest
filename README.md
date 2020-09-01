@@ -8,7 +8,7 @@ host= # hostname for connecting to postgres (ex :locahost or public ip)
 port=5432 # Port number for postgres (default port number is 5432)
 database= # Enter the Database name for postgres which is provided in the config.yml while installing 
 user= # Enter the username name for postgres which is provided in the config.yml while installing 
-password= # Enter the password for postgres which is provided in the config.yml while installing
+password= # Enter the password for postgres which is provided in the config.yml while installing.
 
 Fill the Details in json_data.ini
 
